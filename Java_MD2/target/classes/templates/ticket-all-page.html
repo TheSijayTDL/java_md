@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<body>
+		<table>
+			<tr th:each="temp : ${message}">
+				<td th:text="${temp.getIdt()}"> </td>
+				<td th:text="${temp.getPurchaseDateTime()}"> </td>
+				<td th:text="${temp.getTrip.getDuration()}"> </td>
+				
+				<td th:text="${temp.getPrice()}"> </td>
+				<td th:text="${temp.getIsChild()}"> </td>
+				
+				<td th:text="${temp.getCashier().getName()}"> </td>
+				<td th:text="${temp.getCashier().getSurname()}"> </td>
+				
+				<td>
+					<ul>
+						<li th:each="city : ${temp.getTrip().getCities()}">
+						<span th:text="${city.getTitle()}"> </span>
+						<span th:text="${city.getAddressOfStation()}"> </span>
+						</li>
+					</ul>
+				</td>
+				
+			</tr>
+		</table>
+	</body>
+</html>
